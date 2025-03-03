@@ -960,8 +960,7 @@ Disassembly of section .text:
 ここでは、主なELFファイルの構造を大まかに説明します。
 ELF形式のファイルにはファイルヘッダ、プログラムヘッダ、セクションヘッダ、セクションなどに分かれています。下の写真のように、ファイルヘッダからアドレスを辿ることで、セクションヘッダやプログラムヘッダの位置を知ることができます。またセクションヘッダからセクションの開始位置などを知ることが出来ます。リンク前のオブジェクトファイルではプログラムヘッダは必要ないので、ここでは解説しません。
 
-<img src=".attachments/images/%E3%80%90%E5%BF%9C%E5%8B%9F%E8%AA%B2%E9%A1%8C%E3%80%91%E5%95%8F1-20230522-231757.png" width="200px">
-
+![header](./header.png)
 
 下の構造体のようにELF形式のファイルのフォーマットが定義されています。
 ```c
@@ -1470,30 +1469,30 @@ int main(void){
 | 行数 | -O0最適化  | -O1最適化 | 説明                    |
 | ---- | ---------- | --------- | ----------------------- |
 |\<main>:|||
-|01|push   rbp<br>mov    rbp,rsp |           | RBPレジスタの回避と設定 |
+|01|push   rbp{{< br >}}mov    rbp,rsp |           | RBPレジスタの回避と設定 |
 |02|sub    rsp,0x10									|sub    rsp,0x8							|ローカル変数用のメモリの確保
-|03|mov    DWORD PTR [rbp-0x4],0x2<br>mov    DWORD PTR [rbp-0x8],0x3		|														|int a = 2;<br>int b = 3;|
-|04|mov    eax,DWORD PTR [rbp-0x4]<br>imul   eax,DWORD PTR [rbp-0x8]<br>mov    DWORD PTR [rbp-0xc],eax		|mov    esi,0x6							|c = a * b;
-|05|mov    eax,DWORD PTR [rbp-0xc]<br>mov    esi,eax			|													|printf()の第二引数を設定
-|06|lea    rax,[rip+0xe8b]<br>mov    rdi,rax        		|lea    rdi,[rip+0xeb7]			|printf()の第一引数を設定
+|03|mov    DWORD PTR [rbp-0x4],0x2{{< br >}}mov    DWORD PTR [rbp-0x8],0x3		|														|int a = 2;{{< br >}}int b = 3;|
+|04|mov    eax,DWORD PTR [rbp-0x4]{{< br >}}imul   eax,DWORD PTR [rbp-0x8]{{< br >}}mov    DWORD PTR [rbp-0xc],eax		|mov    esi,0x6							|c = a * b;
+|05|mov    eax,DWORD PTR [rbp-0xc]{{< br >}}mov    esi,eax			|													|printf()の第二引数を設定
+|06|lea    rax,[rip+0xe8b]{{< br >}}mov    rdi,rax        		|lea    rdi,[rip+0xeb7]			|printf()の第一引数を設定
 |07|mov    eax,0x0										|mov    eax,0x0							|printf()の戻り値を初期化
-|08|call   1030 <printf@plt>					|call   1030 <printf@plt>		|printf()呼び出し
-|09|mov    edx,DWORD PTR [rbp-0x8]<br>mov    eax,DWORD PTR [rbp-0x4]<br>mov    esi,edx<br>mov    edi,eax		|														|add()の第一、二引数を設定
-|10|call   1139 <add>									|													|add()呼び出し
+|08|call   1030 \<printf@plt>					|call   1030 \<printf@plt>		|printf()呼び出し
+|09|mov    edx,DWORD PTR [rbp-0x8]{{< br >}}mov    eax,DWORD PTR [rbp-0x4]{{< br >}}mov    esi,edx{{< br >}}mov    edi,eax		|														|add()の第一、二引数を設定
+|10|call   1139 \<add>									|													|add()呼び出し
 |11|mov    DWORD PTR [rbp-0x10],eax		|													|add()の戻り値の格納
-|12|mov    eax,DWORD PTR [rbp-0x10]<br>mov    esi,eax	|mov    esi,0x5							|printf()の第二引数を設定
-|13|lea    rax,[rip+0xe68]<br>mov    rdi,rax        		|lea    rdi,[rip+0xea9]			|printf()の第一引数を設定
+|12|mov    eax,DWORD PTR [rbp-0x10]{{< br >}}mov    esi,eax	|mov    esi,0x5							|printf()の第二引数を設定
+|13|lea    rax,[rip+0xe68]{{< br >}}mov    rdi,rax        		|lea    rdi,[rip+0xea9]			|printf()の第一引数を設定
 |14|mov    eax,0x0										|mov    eax,0x0							|printf()の戻り値を初期化
-|15|call   1030 <printf@plt>					|call   1030 <printf@plt>		|printf()呼び出し
+|15|call   1030 \<printf@plt>					|call   1030 \<printf@plt>		|printf()呼び出し
 |16|mov    eax,0x0										|mov    eax,0x0							|main関数の戻り値セット
-|17|leave  													|add    rsp,0x8							|RBP, RSPレジスタでローカルバッファを解放leave<br>等価式mov rsp, rbp     pop rbp
+|17|leave  													|add    rsp,0x8							|RBP, RSPレジスタでローカルバッファを解放leave{{< br >}}等価式mov rsp, rbp     pop rbp
 |18|ret    													|ret
 
 | 行数   | -O0最適化 | -O1最適化 | 説明 |
 | ------ | --------- | --------- | ---- |
 | \<add>: |           |           |      |
-|01|push   rbp<br>mov    rbp,rsp												|														|RBPレジスタの回避と設定
-|02|mov    DWORD PTR [rbp-0x4],edi<br>mov    DWORD PTR [rbp-0x8],esi<br>mov    edx,DWORD PTR [rbp-0x4]<br>mov    eax,DWORD PTR [rbp-0x8]||引数の取り出しと計算準備
+|01|push   rbp{{< br >}}mov    rbp,rsp												|														|RBPレジスタの回避と設定
+|02|mov    DWORD PTR [rbp-0x4],edi{{< br >}}mov    DWORD PTR [rbp-0x8],esi{{< br >}}mov    edx,DWORD PTR [rbp-0x4]{{< br >}}mov    eax,DWORD PTR [rbp-0x8]||引数の取り出しと計算準備
 |03|add    eax,edx										|lea    eax,[rdi+rsi*1]			|
 |04|pop    rbp												|														|回避したRBPを戻す
 |05|ret															|ret													|関数終了
@@ -1513,11 +1512,11 @@ int main(void){
 | 02       | mov    esi,0x6           | mov    esi,0x6                   | printf()の第二引数を設定     |
 | 03       | lea    rdi,[rip+0xeb7]   | lea    rdi,[rip+0xfa4]           | printf()の第一引数を設定   |
 | 04       | mov    eax,0x0           | xor    eax,eax                   | printf()の戻り値を初期化     |
-| 05       | call   1030 <printf@plt> | call   1030 <printf@plt>         | printf()呼び出し             |
+| 05       | call   1030 \<printf@plt> | call   1030 \<printf@plt>         | printf()呼び出し             |
 | 06       | mov    esi,0x5           | mov    esi,0x5                   | printf()の第二引数を設定     |
 | 07       | lea    rdi,[rip+0xea9]   | lea    rdi,[rip+0xf99]           | printf()の第一引数を設定   |
 | 08       | mov    eax,0x0           | xor    eax,eax                   | printf()の戻り値を初期化     |
-| 09       | call   1030 <printf@plt> | call   1030 <printf@plt>         | printf()呼び出し             |
+| 09       | call   1030 \<printf@plt> | call   1030 \<printf@plt>         | printf()呼び出し             |
 | 10       | mov    eax,0x0           | xor    eax,eax                   | printf()の戻り値を初期化     |
 | 11       | add    rsp,0x8           | add    rsp,0x8                   |                              |
 | 12       | ret                      | ret                              | 関数終了                     |
@@ -1771,7 +1770,6 @@ OSが変わるとコンパイルすらできないプログラムがあるとい
     (*p).x = 3  // 上記と等価
     *p.x        // 間違い
     ```
-<!-- 1. キャストの処理が分かりずらい？？？？ -->
 
 このようにポインタ変数には幾つかの理不尽な点があります。C言語のポインタの概念が難しいと思われる理由が言語仕様の理不尽さから少しは影響していると思いました。
 なぜこのような文法を採用したのか調べてみました。歴史的な経緯を調べてみると、ANSI-C(C89)というC言語の初めての標準化された仕様の時点で既に現在のポインタを扱うのと同じような文法だったようです。標準化前の文法では、ポインタ変数の宣言を```int p[];```としていたらしいですが、それらの詳細な文法は現在では既に残っていないようです。
@@ -1857,7 +1855,7 @@ struct_t b;
 |                    | ap++;               | (ap$++)\$;           |
 |                    | *(ap++) = x;        | ap$++ = x;         |
 | 構造体             | struct_t *bp = &b;  | struct_t bp$ = &b;  |
-|                 |bp->x = x;<br>(*b).x = x;| bp.x = x;          |
+|                 |bp->x = x;{{< br >}}(*b).x = x;| bp.x = x;          |
 |                    | (bp->array)[2] = x; | (bp.array)[2] = x; |
 | ポインタのポインタ | int **pp = &p;      | int pp$$ = &p$;    |
 
