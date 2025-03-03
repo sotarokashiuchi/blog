@@ -26,8 +26,7 @@ mov rax, [rax]
 ```
 
 以下の動画は私が作ったテストケースと、2kmccをコンパイルしている様子です。
-<video controls autoplay muted loop playsinline src="/blog.jp/assets/items/2023-11/2023-11-07-compiler-make-test.webm"></video>
-![video](./2023-11-07-compiler-make-test.webm)
+{{< video src="2023-11-07-compiler-make-test.webm" >}}
 
 直近の課題として、フラグレジスタのCarryとOverflowの違いがよくわからなかったので、その違いを調べたいです。そして最終目標は、セルフホストを実現させることです。頑張ろー！！
 
