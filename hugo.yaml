@@ -1,4 +1,4 @@
-baseURL: "https://sotarokashiuchi.github.io/blog.jp/"
+baseURL: "https://sotarokashiuchi.github.io/blog/"
 title: KashiuchiSotaro
 # paginate: 5
 theme: PaperMod
@@ -11,6 +11,22 @@ theme: PaperMod
 # minify:
 #   disableXML: true
 #   minifyOutput: true
+
+defaultContentLanguage: ja
+defaultContentLanguageInSubdir: true
+languages:
+  ja:
+    disabled: false
+    languageCode: ja
+    languageDirection: ltr
+    languageName: Japanese
+    weight: 1
+  en:
+    disabled: false
+    languageCode: en
+    languageDirection: ltr
+    languageName: English
+    weight: 2
 
 params:
   title: KashiuchiSotaro
@@ -91,13 +107,13 @@ params:
 menu:
   main:
     - name: Home
-      url: /
+      url: 
       weight: 10
     - name: Tags
-      url: /tags/
+      url: tags/
       weight: 20
     - name: About
-      url: /about
+      url: about
       weight: 30
 
 # # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
@@ -110,3 +126,4 @@ menu:
 #     # guessSyntax: true
 #     # lineNos: true
 #     # style: monokai
+
