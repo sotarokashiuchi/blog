@@ -4,26 +4,48 @@ author=" "
 ShowBreadCrumbs=false
 +++
 
-# プロフィール
-- 名前:樫内蒼太朗
-- キーワード
-    - C言語
-    - Assembly
-    - Golang
-    - Rust
-    - セキュリティ
+# 樫内蒼太朗
+## キーワード
+- C言語
+- Assembly
+- Golang
+- セキュリティ
+- ロボット
+- 回路設計
+- ネットワーク
 
-# プロジェクト
-- [WIP][自作Cコンパイラ](https://github.com/sotarokashiuchi/C_Compiler_for_C)
-- [WIP][Voidaster Keyboard](https://github.com/sotarokashiuchi/Void-Aster-Keyboard)
-- [WRO2020 Expert Junior](https://github.com/sotarokashiuchi/WRO2020_Expert_Junior)
-- [Seekbar Control Keyboard](https://github.com/sotarokashiuchi/SeekbarControlKeyboard)
-- [Joint Development Enviroment Lesson](https://github.com/sotarokashiuchi/JointDevelopmentEnviromentLesson)
-- [Computer Club Web Site](https://nit-wakayama-college.github.io/ComputerClubWebsite/about/)
-- [Attendance Management System](https://github.com/sotarokashiuchi/ACPj)
-- [Rocket Project](https://github.com/sotarokashiuchi/rocket)
+## プロジェクト
+### [WRO2020 Expert Junior](https://github.com/sotarokashiuchi/WRO2020_Expert_Junior)
+教育用ロボットEV3をC言語で制御。『WRO Japan 2020 決勝大会 on the WEB レギュラーカテゴリ』全国優勝。
 
-# 参加歴
+### [Dormitory Life Improvement System](https://github.com/sotarokashiuchi/DormitoryLifeImprovementSystem)
+学寮を便利にするシステム。寮食予約、お風呂の混雑状況等を管理できるシステム。『ゆめくじらプログラミングコンテスト2022』特別賞受賞。
+
+### [Joint Development Enviroment Lesson](https://github.com/sotarokashiuchi/JointDevelopmentEnviromentLesson)
+共同開発環境を構築しようという講義資料。シェル、エディタ、プロセッサなどのプログラミングに必要だか、あまり詳しく学べない内容を説明。更にGit, GitHubを用いた開発方法まで学習できる。
+
+### [Compiler for C](https://github.com/sotarokashiuchi/C_Compiler_for_C)
+自作Cコンパイラ。C言語でトークナイズ、パースを行い、アセンブリ言語のソースコードを生成する。
+
+### [Seekbar Control Keyboard](https://github.com/sotarokashiuchi/SeekbarControlKeyboard)
+自作キーボードのプロトタイプ作品。シークバー(音楽の再生、停止、スキップなど)を制御するためのキーボードで、5スイッチ、1ロータリーエンコーダ。
+
+### [Voidaster Keyboard](https://github.com/sotarokashiuchi/Voidaster-Keyboard)
+自作キーボード。C言語の汎用ポインタ型(void*)が名前の由来の自作キーボード。分割型でBLE&LED対応。誰にでも合うインターフェイスを目指した。
+
+### [Computer Club Web Site](https://nit-wakayama-college.github.io/ComputerClubWebsite/about/)
+和歌山高専のコンピュータ部のWebサイト。このサイトと同じHugoで作成した。お金もかからないし、GitHubで管理することができる。
+
+### [Who Is Absent](https://github.com/sotarokashiuchi/WIA)
+出席管理システム。和歌山高専最大の部員数を誇るコンピュータ部の出席管理を自動化するシステム。学生証を用いて出席管理が可能。
+
+### [Rocket Project](https://github.com/sotarokashiuchi/rocket)
+和歌山高専と和歌山大学の学生とでロケットを飛ばそう！というプロジェクト。伝送部分を担当した。ROS2というロボット開発プラットフォームを用いている。これにより、データの管理、データのグラフ化、ログの取得等が楽に行えた。『ゆめくじらプログラミングコンテスト2024』一般投票賞受賞。
+
+### [Prototype Lesson](https://github.com/sotarokashiuchi/prototype-lesson)
+2つのサーボモータを使い、きれいな直線と渦巻を描くロボットを作成するという課題。直線と渦巻をきれいに描くため、様々な工夫や、様々な実験を行っているので、報告書を見てほしい。
+
+## 参加歴
 | 年月      | 内容                                                      |
 | --------- | --------------------------------------------------------- |
 | 2020-2022 | 『次世代ロボットエンジニア支援機構』会員                  |
@@ -41,9 +63,11 @@ ShowBreadCrumbs=false
 | 2024/05   | 『第19回 情報危機管理コンテスト 一次予選』出場            |
 | 2024/06   | 『IT企業直伝プログラミングスタートアップ講座』主講師      |
 | 2024/09   | 『コンピューター部』部長就任                              |
+| 2025/03   | 『GCC2025 Taiwan』参加                                    |
+| 2025/08   | 『NTT西日本インターンシップ』参加                           |
 
 
-# 受賞
+## 受賞
 | 年月    | 内容                                                                         |
 | ------- | ---------------------------------------------------------------------------- |
 | 2019/08 | 「WRO Japan 2019 奈良予選会レギュラーカテゴリーミドル競技中学生部門」準優勝  |
@@ -51,8 +75,9 @@ ShowBreadCrumbs=false
 | 2021/05 | 「FIRST Robotics Competition(FRC)2020-2021 Rookie Game Changer Award」受賞   |
 | 2022/11 | 「ゆめくじら プログラミングコンテスト 2022」自由部門特別賞、一般部門準優勝   |
 | 2024/11 | 「ゆめくじら プログラミングコンテスト 2024」一般投票賞                       |
+| 2025/03 | 「GCC2025 Taiwan CREST vouchers awarded」受賞 |
 
-# 資格
+## 資格
 | 年月    | 内容                                    |
 | ------- | --------------------------------------- |
 | 2020/02 | C言語プログラミング能力認定試験 3級合格 |
@@ -63,4 +88,5 @@ ShowBreadCrumbs=false
 | 2023/04 | 情報セキュリティマネジメント試験 合格   |
 | 2023/11 | 実用英語技能検定試験 準2級合格          |
 | 2024/07 | ネットワークスペシャリスト試験 合格     |
+| 2025/01 | 第二種電気工事士試験 合格               |
 
